@@ -28,7 +28,9 @@ with open(file, mode='r', encoding='utf-8') as f:
 df = pd.read_csv(file, sep=',')
 #print(df.values)
 
+print("df pre ", df)
 X = df.iloc[:,:-1]
+print("\n\n df post: ", X)
 y = df.iloc[:, :1]
 rslt_df = df
 
@@ -130,12 +132,35 @@ WP_df["DeepInfer_Implication"] = WP_df.apply(lambda x: "Uncertain" if (x['vCount
 WP_df['Actual_Outcome'] = ActualOutcome
 #print(WP_df)
 
+#print("This is the value of X ", X)
+X = np.expand_dims(X, axis=1)
+
 #For PIMA DIABETES
 predictionvalue = (model.predict(X) > 0.5).astype(int)
 
-#predictionvalue
-WP_df['Predicted_Outcome'] = predictionvalue
+
 #print(WP_df)
+
+print("We made it past the prediction, our predicted values are ", predictionvalue)
+#print(type(WP_df['Predicted_Outcome'].iloc[0]))  # Check type of first value
+#print(WP_df['Predicted_Outcome'].apply(type).value_counts())  # Check for type distribution across the column
+# Use numpy.vectorize to handle nested arrays
+extractedList = []
+for item in predictionvalue:
+    for item2 in item:
+        for item3 in item:
+            extractedList.append(item3)
+
+extractedList = [x.item() for x in extractedList]
+print("Our extracted values now look like ", extractedList)
+
+#predictionvalue
+WP_df['Predicted_Outcome'] = extractedList
+# Apply to the 'Predicted_Outcome' column
+
+#WP_df['Predicted_Outcome'] = extract_value(WP_df['Predicted_Outcome'])
+print("Here's the df values ")
+print(WP_df['Predicted_Outcome'].head())
 
 
 WP_df["GroundTruth"] = WP_df.apply(lambda x: "Correct" if (x['Actual_Outcome'] == x['Predicted_Outcome']) else "Wrong", axis=1)
