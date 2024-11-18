@@ -260,10 +260,20 @@ WP_df["DeepInfer_Implication"] = WP_df.apply(lambda x: "Uncertain" if (x['vCount
 print(ActualOutcome)
 WP_df['Actual_Outcome'] = ActualOutcome
 print(WP_df)
-
+#make the expected input shape for new library
+X = np.expand_dims(X, axis=1)
 predictionvalue = (model.predict(X) > 0.5).astype(int)
+#Essentially undo the change
+extractedList = []
+for item in predictionvalue:
+    for item2 in item:
+        for item3 in item:
+            extractedList.append(item3)
 
-WP_df['Predicted_Outcome'] = predictionvalue
+extractedList = [x.item() for x in extractedList]
+
+
+WP_df['Predicted_Outcome'] = extractedList
 print(WP_df)
 
 
