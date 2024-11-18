@@ -261,9 +261,15 @@ print(ActualOutcome)
 WP_df['Actual_Outcome'] = ActualOutcome
 print(WP_df)
 
+X = np.expand_dims(X, axis=1)
 predictionvalue = (model.predict(X) > 0.5).astype(int)
+extractedList = []
+for item in predictionvalue:
+    for item2 in item:
+        for item3 in item:
+            extractedList.append(item3)
 
-WP_df['Predicted_Outcome'] = predictionvalue
+WP_df['Predicted_Outcome'] = extractedList
 print(WP_df)
 
 
