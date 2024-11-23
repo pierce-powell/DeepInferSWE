@@ -1,0 +1,11 @@
+# Base Image
+FROM ubuntu:16.04
+
+# Set working directory
+WORKDIR /
+
+# Copy the installation script into the container
+COPY install.sh /
+
+RUN chmod +x /install.sh
+RUN "/install.sh"
