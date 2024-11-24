@@ -1,0 +1,7 @@
+# Action to build container image
+name: "Build Container"
+description: "Build a container that can run the reproducibility package."
+runs:
+  using: "docker"
+  image: "dockerfile"
+  
