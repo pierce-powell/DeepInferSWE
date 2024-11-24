@@ -30,4 +30,4 @@ jobs:
         tags: ghcr.io/${{ github.repository_owner }}/deepinfer:latest
 
     - name: Run container from GitHub Container Registry
-      run: docker run ghcr.io/${{ github.repository_owner }}/my-container:latest
+      run: docker run ghcr.io/${{ github.repository_owner }}/deepinfer:latest
