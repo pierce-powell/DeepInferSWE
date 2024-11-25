@@ -20,4 +20,5 @@ apt-get autoremove -y
 apt-get clean
 python3.7 -m ensurepip --upgrade
 python3.7 -m pip install --upgrade pip setuptools wheel
+ln -s /usr/local/bin/python3.7 /usr/local/bin/python3
 cd /
