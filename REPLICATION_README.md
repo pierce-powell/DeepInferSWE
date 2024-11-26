@@ -1,6 +1,6 @@
 # Updated-Packages
 
-Our team has tested the DeepInfer tool using Python version 3.12.3. This branch was developed and replicated from linux (wsl) command line. Important to note, the current version of TensorFlow(2.16.0) will not work for Unix systems due to the Unix versioning is behind the linux versioning.
+Our team has tested the DeepInfer tool using Python version 3.12.3. This branch was developed and replicated from Linux (wsl) command line. Important to note, the current version of TensorFlow(2.16.0) will not work for Unix systems due to the Unix versioning is behind the linux versioning.
 On this branch, we've also updated requirements.txt with package versions compatible with the current Python version. Below, we will outline the installation process for the Python virtual environment and python environment setup.
 
 ### Environment Set Up
