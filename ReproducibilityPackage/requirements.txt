@@ -1,7 +1,7 @@
-tensorflow=2.18.0
-numpy=2.0.2
-pandas=2.2.3
-Scikit-learn=1.5.2
-Scipy=1.14.1
-Keras=3.6.0
-protobuf=5.28.3
+tensorflow==2.18.0
+numpy==2.0.2
+pandas==2.2.3
+Scikit-learn==1.5.2
+Scipy==1.14.1
+Keras==3.6.0
+protobuf==5.28.3
