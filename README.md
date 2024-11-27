@@ -1,23 +1,23 @@
 # Docker
 
 Our team has containerized the DeepInfer tool within a Docker image to simplify the setup and allow us to us run the DeepInfer reproducibility package as-is. Follow the steps below to build the Docker image, run the container, and clone the repository inside the container.
-Our dockerfile has been created inside this directory (Container). A GitHub workflow that builds the container was created and the container build is successful. The container can be downloaded at at ghcr.io/pierce-powell/deepinfer:latest
+Our dockerfile has been created inside this directory (Container). A GitHub workflow that builds the container was created and the container build is successful. The workflow will build the container for the local user and upload it to GitHub Container Registry(ghcr).
 
 # Note Regarding the Team's Branch Structure
 
-The team also looked into newer Python version and updated package versions for the project Python libraries. Checkout Updated-Packages branch to replicate the results using the newer versions. The replication guide is written in REPLICATION_README.md in the root directory of the Updated-Packaged branch.
+The team also looked into newer Python versions and updated package versions for the project Python libraries. Checkout Updated-Packages branch to replicate the results using the newer versions. The replication guide is written in REPLICATION_README.md in the root directory of the Updated-Packaged branch.
 
 ### Build the Docker Image
 
 ```
 cd Container
-docker build ghcr.io/pierce-powell/deepinfer:latest
+docker build -t deepinfer:latest .
 ```
 
 ### Run the Docker Image
 
 ```
-docker run -it ghcr.io/pierce-powell/deepinfer:latest
+docker run -it deepinfer:latest .
 ```
 
 Once insde the container, follow these steps to reproduce the results.
