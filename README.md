@@ -17,7 +17,7 @@ docker build -t deepinfer:latest .
 ### Run the Docker Image
 
 ```
-docker run -it deepinfer:latest .
+docker run -it deepinfer:latest
 ```
 
 Once insde the container, follow these steps to reproduce the results.
